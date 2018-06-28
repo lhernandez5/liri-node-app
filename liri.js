@@ -12,7 +12,8 @@ var textFile = "log.txt";
 function omdb(movie){
   request("http://www.omdbapi.com/?t="+movie+"&y=&plot=short&apikey=trilogy", function(error, response, body) {
     if (!error && response.statusCode === 200) {
-      var movieData="Movie: " + JSON.parse(body).Title+"\nYear of Movie: "+JSON.parse(body).Year+"\nIMDB Rating: "+JSON.parse(body).Rated+"\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\nCountry: "+JSON.parse(body).Country+"\nLanguages: "+JSON.parse(body).Language+"\nPlot: "+JSON.parse(body).Plot+"\nActors: "+JSON.parse(body).Actors;
+      console.log("\nMovie: " + JSON.parse(body).Title+"\n\nYear of Movie: "+JSON.parse(body).Year+"\n\nIMDB Rating: "+JSON.parse(body).Rated+"\n\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\n\nCountry: "+JSON.parse(body).Country+"\n\nLanguages: "+JSON.parse(body).Language+"\n\nPlot: "+JSON.parse(body).Plot+"\n\nActors: "+JSON.parse(body).Actors);
+      var movieData="\nMovie: " + JSON.parse(body).Title+"\n\nYear of Movie: "+JSON.parse(body).Year+"\n\nIMDB Rating: "+JSON.parse(body).Rated+"\n\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\n\nCountry: "+JSON.parse(body).Country+"\n\nLanguages: "+JSON.parse(body).Language+"\n\nPlot: "+JSON.parse(body).Plot+"\n\nActors: "+JSON.parse(body).Actors;
       writeToFile(movieData);
     }
   });
@@ -26,7 +27,8 @@ function spotifyFunc(theSong){
     var albumName=JSON.stringify(data.tracks.items[0].album.name, null, 2);
     var previewLink=JSON.stringify(data.tracks.items[0].album.external_urls.spotify, null, 2);
     var song=JSON.stringify(data.tracks.items[0].name, null, 2);
-    var dataToPrint="Artist: "+artist+"\nSong:"+song+"\nAlbum Name: "+albumName+"\nPreview Link: "+previewLink
+    console.log("\nArtist: "+artist+"\n\nSong:"+song+"\n\nAlbum Name: "+albumName+"\n\nPreview Link: "+previewLink);
+    var dataToPrint="\nArtist: "+artist+"\n\nSong:"+song+"\n\nAlbum Name: "+albumName+"\n\nPreview Link: "+previewLink
     writeToFile(dataToPrint);
   });
   }
@@ -36,7 +38,7 @@ function writeToFile(data){
       if (err) {
         console.log(err);
       } else {
-        console.log("Content Added!");
+        console.log("\nCONTENT ADDED TO log.txt!\n");
       }
     });
   }
@@ -84,6 +86,9 @@ case "do-what-it-says":
         break;
       }
   });
+  break;
+  default:
+    console.log("You did not choose an appropriate command");
   break;
 }
 
