@@ -15,7 +15,7 @@ function omdb(movie){
       return console.log(error);
     }
       console.log("\nMovie: " + JSON.parse(body).Title+"\n\nYear of Movie: "+JSON.parse(body).Year+"\n\nIMDB Rating: "+JSON.parse(body).Rated+"\n\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\n\nCountry: "+JSON.parse(body).Country+"\n\nLanguages: "+JSON.parse(body).Language+"\n\nPlot: "+JSON.parse(body).Plot+"\n\nActors: "+JSON.parse(body).Actors);
-      var movieData="\nMovie: " + JSON.parse(body).Title+"\nYear of Movie: "+JSON.parse(body).Year+"\nIMDB Rating: "+JSON.parse(body).Rated+"\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\nCountry: "+JSON.parse(body).Country+"\nLanguages: "+JSON.parse(body).Language+"\nPlot: "+JSON.parse(body).Plot+"\nActors: "+JSON.parse(body).Actors;
+      var movieData="Movie: " + JSON.parse(body).Title+"\nYear of Movie: "+JSON.parse(body).Year+"\nIMDB Rating: "+JSON.parse(body).Rated+"\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\nCountry: "+JSON.parse(body).Country+"\nLanguages: "+JSON.parse(body).Language+"\nPlot: "+JSON.parse(body).Plot+"\nActors: "+JSON.parse(body).Actors;
       writeToFile(movieData);
   });
 }
@@ -29,13 +29,14 @@ function spotifyFunc(theSong){
     var previewLink=JSON.stringify(data.tracks.items[0].album.external_urls.spotify, null, 2);
     var song=JSON.stringify(data.tracks.items[0].name, null, 2);
     console.log("\nArtist: "+artist+"\n\nSong:"+song+"\n\nAlbum Name: "+albumName+"\n\nPreview Link: "+previewLink);
-    var dataToPrint="\nArtist: "+artist+"\nSong:"+song+"\nAlbum Name: "+albumName+"\nPreview Link: "+previewLink
+    var dataToPrint="Artist: "+artist+"\nSong:"+song+"\nAlbum Name: "+albumName+"\nPreview Link: "+previewLink
     writeToFile(dataToPrint);
   });
   }
 
 function writeToFile(data){
-  fs.appendFile(textFile,data+",\n", function(err) {
+  var lines="\n==================================================\n";
+  fs.appendFile(textFile,data+lines, function(err) {
       if (err) {
         return console.log(err);
       }
@@ -48,10 +49,15 @@ case "my-tweets":
   client.get("statuses/home_timeline", { q: "node.js" }, function(error,tweets,response) {
     if (error) throw error;
     var dataArr = [];
+    var stringOfTweeets="";
     for (var i = 0; i < tweets.length; i++) {
-      dataArr.push((i+1)+". "+tweets[i].text+"\n");
+      dataArr.push(tweets[i].text+"\n");
     }
-    writeToFile(dataArr);
+    dataArr.forEach(element => {
+      stringOfTweeets+=element;
+    });
+    writeToFile(stringOfTweeets);
+    console.log("\n"+stringOfTweeets);
   });
  break;
 case "spotify-this-song":
@@ -73,10 +79,7 @@ case "do-what-it-says":
     if (error) {
       return console.log(error);
     }
-      console.log(data);
       var dataArr = data.split(",");
-      console.log(dataArr[0]);
-      console.log(dataArr[1]);
       switch(dataArr[0]){
         case "spotify-this-song":
         spotifyFunc(dataArr[1]);
