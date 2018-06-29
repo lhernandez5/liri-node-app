@@ -51,10 +51,10 @@ case "my-tweets":
     var dataArr = [];
     var stringOfTweeets="";
     for (var i = 0; i < tweets.length; i++) {
-      dataArr.push(tweets[i].text+"\n");
+      dataArr.push(tweets[i].text);
     }
     dataArr.forEach(element => {
-      stringOfTweeets+=element;
+      stringOfTweeets+=element+"\n";
     });
     writeToFile(stringOfTweeets);
     console.log("\n"+stringOfTweeets);
