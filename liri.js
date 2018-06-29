@@ -11,11 +11,12 @@ var textFile = "log.txt";
 
 function omdb(movie){
   request("http://www.omdbapi.com/?t="+movie+"&y=&plot=short&apikey=trilogy", function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      console.log("\nMovie: " + JSON.parse(body).Title+"\n\nYear of Movie: "+JSON.parse(body).Year+"\n\nIMDB Rating: "+JSON.parse(body).Rated+"\n\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\n\nCountry: "+JSON.parse(body).Country+"\n\nLanguages: "+JSON.parse(body).Language+"\n\nPlot: "+JSON.parse(body).Plot+"\n\nActors: "+JSON.parse(body).Actors);
-      var movieData="\nMovie: " + JSON.parse(body).Title+"\n\nYear of Movie: "+JSON.parse(body).Year+"\n\nIMDB Rating: "+JSON.parse(body).Rated+"\n\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\n\nCountry: "+JSON.parse(body).Country+"\n\nLanguages: "+JSON.parse(body).Language+"\n\nPlot: "+JSON.parse(body).Plot+"\n\nActors: "+JSON.parse(body).Actors;
-      writeToFile(movieData);
+    if (error) {
+      return console.log(error);
     }
+      console.log("\nMovie: " + JSON.parse(body).Title+"\n\nYear of Movie: "+JSON.parse(body).Year+"\n\nIMDB Rating: "+JSON.parse(body).Rated+"\n\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\n\nCountry: "+JSON.parse(body).Country+"\n\nLanguages: "+JSON.parse(body).Language+"\n\nPlot: "+JSON.parse(body).Plot+"\n\nActors: "+JSON.parse(body).Actors);
+      var movieData="\nMovie: " + JSON.parse(body).Title+"\nYear of Movie: "+JSON.parse(body).Year+"\nIMDB Rating: "+JSON.parse(body).Rated+"\nRotten Tomatoes Rating: "+JSON.parse(body).Ratings[1].Value+"\nCountry: "+JSON.parse(body).Country+"\nLanguages: "+JSON.parse(body).Language+"\nPlot: "+JSON.parse(body).Plot+"\nActors: "+JSON.parse(body).Actors;
+      writeToFile(movieData);
   });
 }
 function spotifyFunc(theSong){
@@ -28,7 +29,7 @@ function spotifyFunc(theSong){
     var previewLink=JSON.stringify(data.tracks.items[0].album.external_urls.spotify, null, 2);
     var song=JSON.stringify(data.tracks.items[0].name, null, 2);
     console.log("\nArtist: "+artist+"\n\nSong:"+song+"\n\nAlbum Name: "+albumName+"\n\nPreview Link: "+previewLink);
-    var dataToPrint="\nArtist: "+artist+"\n\nSong:"+song+"\n\nAlbum Name: "+albumName+"\n\nPreview Link: "+previewLink
+    var dataToPrint="\nArtist: "+artist+"\nSong:"+song+"\nAlbum Name: "+albumName+"\nPreview Link: "+previewLink
     writeToFile(dataToPrint);
   });
   }
@@ -36,10 +37,9 @@ function spotifyFunc(theSong){
 function writeToFile(data){
   fs.appendFile(textFile,data+",\n", function(err) {
       if (err) {
-        console.log(err);
-      } else {
-        console.log("\nCONTENT ADDED TO log.txt!\n");
+        return console.log(err);
       }
+        console.log("\nCONTENT ADDED TO log.txt!\n");
     });
   }
 
@@ -88,7 +88,7 @@ case "do-what-it-says":
   });
   break;
   default:
-    console.log("You did not choose an appropriate command");
+    console.log("You did not choose an appropriate request.");
   break;
 }
 

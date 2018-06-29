@@ -109,3 +109,27 @@ Song:"Rise Up"
 Album Name: "Cheers To The Fall"
 
 Preview Link: "https://open.spotify.com/album/6Blubl1glavmervPJa3QVs",
+
+Movie: Remember the Titans
+
+Year of Movie: 2000
+
+IMDB Rating: PG
+
+Rotten Tomatoes Rating: 73%
+
+Country: USA
+
+Languages: English
+
+Plot: The true story of a newly appointed African-American coach and his high school team on their first season as a racially integrated unit.
+
+Actors: Denzel Washington, Will Patton, Wood Harris, Ryan Hurst,
+
+Artist: "Andra Day"
+
+Song:"Rise Up"
+
+Album Name: "Cheers To The Fall"
+
+Preview Link: "https://open.spotify.com/album/6Blubl1glavmervPJa3QVs",
