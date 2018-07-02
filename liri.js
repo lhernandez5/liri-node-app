@@ -44,9 +44,8 @@ function writeToFile(data){
     });
   }
 
-switch(requestType){
-case "my-tweets":
-  client.get("statuses/home_timeline", { q: "node.js" }, function(error,tweets,response) {
+function getTweets(){
+  client.get("statuses/user_timeline", { q: "node.js" }, function(error,tweets,response) {
     if (error) throw error;
     var dataArr = [];
     var stringOfTweeets="";
@@ -59,22 +58,8 @@ case "my-tweets":
     writeToFile(stringOfTweeets);
     console.log("\n"+stringOfTweeets);
   });
- break;
-case "spotify-this-song":
-  if(process.argv[3]){
-      spotifyFunc(process.argv.splice(3).join(","));
-    }else{
-      spotifyFunc("the Sign ace of base");
-    }
-  break; 
-case "movie-this":
-  if(process.argv[3]){
-    omdb(process.argv.splice(3).join("+"));
-  }else{
-    omdb("Mr.Nobody");
-  }
-break;
-case "do-what-it-says":
+}
+function doWhatItSays(){
   fs.readFile("random.txt", "utf8", function(error, data) {
     if (error) {
       return console.log(error);
@@ -82,13 +67,35 @@ case "do-what-it-says":
       var dataArr = data.split(",");
       switch(dataArr[0]){
         case "spotify-this-song":
-        spotifyFunc(dataArr[1]);
+        spotifyFunc(dataArr[1].split(" ").join(","));
         break;
         case "movie-this":
         omdb(dataArr[1].split(" ").join("+"));
         break;
       }
   });
+}
+
+switch(requestType){
+case "my-tweets":
+  getTweets();
+ break;
+case "spotify-this-song":
+  if(process.argv[3]){
+      spotifyFunc(process.argv.slice(3).join(","));
+    }else{
+      spotifyFunc("the Sign ace of base");
+    }
+  break; 
+case "movie-this":
+  if(process.argv[3]){
+    omdb(process.argv.slice(3).join("+"));
+  }else{
+    omdb("Mr.Nobody");
+  }
+break;
+case "do-what-it-says":
+  doWhatItSays();
   break;
   default:
     console.log("You did not choose an appropriate request.");
