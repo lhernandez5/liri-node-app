@@ -1,4 +1,4 @@
-# liri-node-app::thought_balloon::movie_camera:notes:
+# liri-node-app::thought_balloon::movie_camera::musical_score:
 while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI is command line node app that takes in parameters and gives you back data.
 <br>
 <img width="660" alt="my_tweets" src="https://user-images.githubusercontent.com/22462010/42546155-134e0e74-848a-11e8-904c-93011b384fe6.png">
