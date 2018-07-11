@@ -2,7 +2,7 @@
 While SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI is command line node app that takes in parameters and gives you back data.
 To retrieve the data that will power this app, I sent requests to the Twitter, Spotify and OMDB APIs
 <br>
-<h2>node liri.js my-tweets<h2>
+<h2>node liri.js my-tweets</h2>
 This will show your last 20 tweets and when they were created at in your terminal/bash window.
 <img width="660" alt="my_tweets" src="https://user-images.githubusercontent.com/22462010/42546155-134e0e74-848a-11e8-904c-93011b384fe6.png">
 <br>
