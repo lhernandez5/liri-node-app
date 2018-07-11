@@ -24,7 +24,7 @@ This will show your last 20 tweets and when they were created at in your termina
 <h2>3. node liri.js movie-this 'movie name here'</h2>
   <ol>
   <li>This will output the following information to your terminal/bash window:<li>
-</ol>
+
   <ul>
    <li>Title of the movie.</li>
    <li>Year the movie came out.</li>
@@ -35,7 +35,7 @@ This will show your last 20 tweets and when they were created at in your termina
    <li>Plot of the movie.</li>
    <li>Actors in the movie.</li>
     </ul>
-
+</ol>
 <img width="660" alt="spotify" src="https://user-images.githubusercontent.com/22462010/42546162-1ad34a2e-848a-11e8-8754-99edeb6ce84b.png">
 <br>
 <img width="660" alt="movie_this_black_panther" src="https://user-images.githubusercontent.com/22462010/42546173-22537d0a-848a-11e8-873b-ee9fb9192c97.png">
