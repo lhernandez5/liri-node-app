@@ -39,3 +39,8 @@ This will show your last 20 tweets and when they were created at in your termina
 <img width="660" alt="spotify" src="https://user-images.githubusercontent.com/22462010/42546162-1ad34a2e-848a-11e8-8754-99edeb6ce84b.png">
 <br>
 <img width="660" alt="movie_this_black_panther" src="https://user-images.githubusercontent.com/22462010/42546173-22537d0a-848a-11e8-873b-ee9fb9192c97.png">
+<h2>4.node liri.js do-what-it-says</h2>
+Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
+It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
+<br>
+<img width="625" alt="do_what_it_says" src="https://user-images.githubusercontent.com/22462010/42547603-0ad967be-8491-11e8-91c4-b351785358b4.png">
