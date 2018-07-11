@@ -4,6 +4,7 @@ To retrieve the data that will power this app, I sent requests to the Twitter, S
 <br>
 <h2>1. node liri.js my-tweets</h2>
 This will show your last 20 tweets and when they were created at in your terminal/bash window.
+<br>
 <img width="660" alt="my_tweets" src="https://user-images.githubusercontent.com/22462010/42546155-134e0e74-848a-11e8-904c-93011b384fe6.png">
 <br>
 <h2>2. node liri.js spotify-this-song 'song name here'</h2>
@@ -36,6 +37,7 @@ This will show your last 20 tweets and when they were created at in your termina
    <li>Actors in the movie.</li>
     </ol>
 </ul>
+<br>
 <img width="660" alt="spotify" src="https://user-images.githubusercontent.com/22462010/42546162-1ad34a2e-848a-11e8-8754-99edeb6ce84b.png">
 <br>
 <img width="660" alt="movie_this_black_panther" src="https://user-images.githubusercontent.com/22462010/42546173-22537d0a-848a-11e8-873b-ee9fb9192c97.png">
