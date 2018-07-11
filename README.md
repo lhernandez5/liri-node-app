@@ -24,7 +24,7 @@ This will show your last 20 tweets and when they were created at in your termina
 <br>
 <h2>3. node liri.js movie-this 'movie name here'</h2>
   <ul>
-  <li>This will output the following information to your terminal/bash window:<li>
+  <li>This will output the following information to your terminal/bash window:</li>
   <ol>
    <li>Title of the movie.</li>
    <li>Year the movie came out.</li>
