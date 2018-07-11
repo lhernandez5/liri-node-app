@@ -15,6 +15,7 @@ This will show your last 20 tweets and when they were created at in your termina
 <li>A preview link of the song from Spotify</li>
 <li>The album that the song is from</li>
 </ol>
+  </ul>
 <li>If no song is provided then your program will default to "The Sign" by Ace of Base.</li>
 <br>
 <img width="660" alt="spotify_this" src="https://user-images.githubusercontent.com/22462010/42546169-1dfe106c-848a-11e8-8757-06530b8262ea.png">
